@@ -55,6 +55,8 @@ export default {
 }
 </script>
 
-<style lang='scss'>
-
+<style lang='scss' scoped>
+ button {
+   mArgin: 200px;
+ }
 </style>

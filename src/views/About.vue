@@ -1,13 +1,12 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <button @click="tryIt">Click</button>
+    <button @click="showSuccess('success message', 'OK')">success</button>
+    <button @click="showError('error message', 'NOT')">error</button>
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
-
 export default {
   data () {
     return {
@@ -15,9 +14,18 @@ export default {
     }
   },
   methods: {
-    ...mapActions([
-      'tryIt'
-    ])
+    showSuccess (title, text) {
+      this.$notify.success({
+        title: title,
+        text: text
+      })
+    },
+    showError (title, text) {
+      this.$notify.error({
+        title: title,
+        text: text
+      })
+    }
   }
 }
 </script>

@@ -5,7 +5,7 @@ import store from './store'
 import VueI18n from 'vue-i18n'
 import en from '@/lang/en'
 import Api from '@/services/ApiService'
-import Swal from 'sweetalert2'
+import Swal from '@/services/notifyService'
 
 Vue.use(VueI18n)
 Vue.config.productionTip = false
