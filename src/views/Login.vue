@@ -29,6 +29,9 @@ export default {
     }
   },
   methods: {
+    checkForApiError (error) {
+      this.$notify.error('Error', error)
+    },
     // extract the login action from Vuex to our component to be used as a method
     ...mapActions([
       'login'
@@ -47,8 +50,9 @@ export default {
         })
         .catch((error) => {
           // if there was an error in the API, we show it.
-          this.isLoading = false
+          this.checkForApiError(error)
           this.errorMessage = error.response.data.error
+          this.isLoading = false
         })
     }
   }
@@ -56,7 +60,4 @@ export default {
 </script>
 
 <style lang='scss' scoped>
- button {
-   mArgin: 200px;
- }
 </style>

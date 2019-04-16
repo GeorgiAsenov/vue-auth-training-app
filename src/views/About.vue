@@ -9,16 +9,14 @@
 <script>
 export default {
   data () {
-    return {
-
-    }
+    return {}
   },
   methods: {
     showSuccess () {
-      this.$notify.success({})
+      this.$notify.success('success', 'the message is send')
     },
     showError () {
-      this.$notify.error({})
+      this.$notify.error('error', 'the message it\'s not send')
     }
   }
 }
