@@ -1,8 +1,8 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <button @click="showSuccess('success message', 'OK')">success</button>
-    <button @click="showError('error message', 'NOT')">error</button>
+    <button @click="showSuccess">success</button>
+    <button @click="showError">error</button>
   </div>
 </template>
 
@@ -14,17 +14,11 @@ export default {
     }
   },
   methods: {
-    showSuccess (title, text) {
-      this.$notify.success({
-        title: title,
-        text: text
-      })
+    showSuccess () {
+      this.$notify.success({})
     },
-    showError (title, text) {
-      this.$notify.error({
-        title: title,
-        text: text
-      })
+    showError () {
+      this.$notify.error({})
     }
   }
 }
