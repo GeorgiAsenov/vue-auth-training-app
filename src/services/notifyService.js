@@ -2,21 +2,16 @@ import Swal from 'sweetalert2'
 
 export default {
 
-  success (title, text) {
+  success (params) {
     return Swal.fire({
       type: 'success',
-      title: title,
-      text: text,
-      position: 'top-end',
-      showConfirmButton: false
+      ...params
     })
   },
-  error (title, text) {
+  error (params) {
     return Swal.fire({
       type: 'error',
-      title: title,
-      text: text,
-      showConfirmButton: false
+      ...params
     })
   }
 }

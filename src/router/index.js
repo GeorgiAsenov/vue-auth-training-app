@@ -37,8 +37,8 @@ const routerInstance = new Router({
 
 // Attaches a beforeEach hook that is called before every route is visited.
 routerInstance.beforeEach((to, from, next) => {
-  // if user has access
   if (canAccess(to.meta.auth)) {
+    document.title = to.meta.title
     // continue as he has access
     next()
   } else {

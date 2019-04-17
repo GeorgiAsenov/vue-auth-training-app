@@ -29,9 +29,9 @@ export default {
     }
   },
   methods: {
-    checkForApiError (error) {
-      this.$notify.error('Error', error)
-    },
+    // checkForApiError (error) {
+
+    // },
     // extract the login action from Vuex to our component to be used as a method
     ...mapActions([
       'login'
@@ -50,7 +50,10 @@ export default {
         })
         .catch((error) => {
           // if there was an error in the API, we show it.
-          this.checkForApiError(error)
+          this.$notify.error({
+            title: 'Error',
+            text: error
+          })
           this.errorMessage = error.response.data.error
           this.isLoading = false
         })

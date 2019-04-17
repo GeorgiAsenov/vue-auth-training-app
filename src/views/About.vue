@@ -13,10 +13,20 @@ export default {
   },
   methods: {
     showSuccess () {
-      this.$notify.success('success', 'the message is send')
+      this.$notify.success({
+        title: 'Success',
+        text: 'green is good',
+        position: 'top-left',
+        showConfirmButton: false
+      })
     },
     showError () {
-      this.$notify.error('error', 'the message it\'s not send')
+      this.$notify.error({
+        title: 'Error',
+        text: 'red is bad',
+        position: 'top-right',
+        showConfirmButton: false
+      })
     }
   }
 }

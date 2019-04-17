@@ -3,19 +3,22 @@ export const routes = {
   home: {
     name: 'home',
     meta: {
-      label: 'navigations.home'
+      label: 'navigations.home',
+      title: 'home'
     }
   },
   about: {
     name: 'about',
     meta: {
-      label: 'navigations.about'
+      label: 'navigations.about',
+      title: 'about'
     }
   },
   cpanel: {
     name: 'cpanel',
     meta: {
-      label: 'navigations.cpanel'
+      label: 'navigations.cpanel',
+      title: 'cpanel'
     }
   },
   login: {
@@ -23,7 +26,8 @@ export const routes = {
     meta: {
       // this item is only accessible if not logged in
       auth: false,
-      label: 'navigations.login'
+      label: 'navigations.login',
+      title: 'login'
     }
   }
 }
