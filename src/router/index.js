@@ -7,7 +7,6 @@ Vue.use(Router)
 
 // Loads Pages async
 const load = (name) => () => import(`../views/${name}.vue`)
-
 // define a router instance
 const routerInstance = new Router({
   mode: 'history',
@@ -36,9 +35,9 @@ const routerInstance = new Router({
 })
 
 // Attaches a beforeEach hook that is called before every route is visited.
+
 routerInstance.beforeEach((to, from, next) => {
   if (canAccess(to.meta.auth)) {
-    document.title = to.meta.title
     // continue as he has access
     next()
   } else {
@@ -47,6 +46,10 @@ routerInstance.beforeEach((to, from, next) => {
     // otherwise go to the login
     next({ name: 'login' })
   }
+})
+
+routerInstance.afterEach((to, from) => {
+  document.title = to.meta.title
 })
 
 export default routerInstance
