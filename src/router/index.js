@@ -10,6 +10,7 @@ const load = (name) => () => import(`../views/${name}.vue`)
 
 // define a router instance
 const routerInstance = new Router({
+  mode: 'history',
   routes: [
     {
       ...routes.home,
@@ -36,8 +37,8 @@ const routerInstance = new Router({
 
 // Attaches a beforeEach hook that is called before every route is visited.
 routerInstance.beforeEach((to, from, next) => {
-  // if user has access
   if (canAccess(to.meta.auth)) {
+    document.title = to.meta.title
     // continue as he has access
     next()
   } else {

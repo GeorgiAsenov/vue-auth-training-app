@@ -4,7 +4,7 @@
     <div v-if="errorMessage">
       {{ errorMessage }}
     </div>
-    <form @submit.prevent="submit">
+    <form @submit.prevent="submit" v-if="showForm">
       <input type="text" v-model="form.username">
       <input type="password" v-model="form.password">
       <button type="submit">Submit</button>
@@ -19,6 +19,7 @@ export default {
   name: 'Login',
   data () {
     return {
+      showForm: true,
       isLoading: false,
       form: {
         username: '',
@@ -28,6 +29,9 @@ export default {
     }
   },
   methods: {
+    // checkForApiError (error) {
+
+    // },
     // extract the login action from Vuex to our component to be used as a method
     ...mapActions([
       'login'
@@ -41,17 +45,22 @@ export default {
         .then((response) => {
           // when its done we set isLoading to false.
           this.isLoading = false
+          this.showForm = false
+          this.$router.push({ name: 'home' })
         })
         .catch((error) => {
           // if there was an error in the API, we show it.
-          this.isLoading = false
+          this.$notify.error({
+            title: 'Error',
+            text: error
+          })
           this.errorMessage = error.response.data.error
+          this.isLoading = false
         })
     }
   }
 }
 </script>
 
-<style lang='scss'>
-
+<style lang='scss' scoped>
 </style>
