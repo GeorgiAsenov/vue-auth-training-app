@@ -3,6 +3,7 @@
     <h1>This is an about page</h1>
     <button @click="showSuccess">success</button>
     <button @click="showError">error</button>
+    <button @click="showQuestion">error</button>
   </div>
 </template>
 
@@ -14,18 +15,17 @@ export default {
   methods: {
     showSuccess () {
       this.$notify.success({
-        title: 'Success',
-        text: 'green is good',
-        position: 'top-left',
-        showConfirmButton: false
+        title: 'Done!'
       })
     },
     showError () {
       this.$notify.error({
-        title: 'Error',
-        text: 'red is bad',
-        position: 'top-right',
-        showConfirmButton: false
+        position: 'top-right'
+      })
+    },
+    showQuestion () {
+      this.$notify.quiestion({
+        text: 'click okay to continue'
       })
     }
   }

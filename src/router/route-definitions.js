@@ -4,21 +4,24 @@ export const routes = {
     name: 'home',
     meta: {
       label: 'navigations.home',
-      title: 'home'
+      title: 'home',
+      requiresAuth: true
     }
   },
   about: {
     name: 'about',
     meta: {
       label: 'navigations.about',
-      title: 'about'
+      title: 'about',
+      requiresAuth: true
     }
   },
   cpanel: {
     name: 'cpanel',
     meta: {
       label: 'navigations.cpanel',
-      title: 'cpanel'
+      title: 'cpanel',
+      requiresAuth: true
     }
   },
   login: {

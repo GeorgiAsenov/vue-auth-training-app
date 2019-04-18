@@ -26,3 +26,5 @@ https://scotch.io/tutorials/handling-authentication-in-vue-using-vuex#toc-hide-p
 9. Add a language picker to the navigation.
 
 10. Create a page for listing something. Use any api. Add pagination if you can. Then add a single page.
+
+Authorization header. The Authorization HTTP header provides authentication information on a request. ... A JavaScript app may obtain a token from the server and send that with each request to authenticate the request. This if called bearer authentication and the Authorization header is often used to send the token.
