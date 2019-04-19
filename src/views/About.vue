@@ -2,8 +2,9 @@
   <div class="about">
     <h1>This is an about page</h1>
     <button @click="showSuccess">success</button>
+    <button @click="showSuccess2">success2</button>
     <button @click="showError">error</button>
-    <button @click="showQuestion">error</button>
+    <button @click="showQuestion">question</button>
   </div>
 </template>
 
@@ -14,8 +15,12 @@ export default {
   },
   methods: {
     showSuccess () {
+      this.$notify.success('success message here')
+    },
+    showSuccess2 () {
       this.$notify.success({
-        title: 'Done!'
+        text: 'vuejs',
+        footer: 'asd.jkasjdaskjda'
       })
     },
     showError () {
@@ -24,7 +29,7 @@ export default {
       })
     },
     showQuestion () {
-      this.$notify.quiestion({
+      this.$notify.question({
         text: 'click okay to continue'
       })
     }
