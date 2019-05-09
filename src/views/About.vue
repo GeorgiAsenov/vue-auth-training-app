@@ -15,18 +15,17 @@ export default {
   methods: {
     showSuccess () {
       this.$notify.success({
-        title: 'Success',
-        text: 'green is good',
-        position: 'top-left',
-        showConfirmButton: false
+        title: 'Done!'
       })
     },
     showError () {
       this.$notify.error({
-        title: 'Error',
-        text: 'red is bad',
-        position: 'top-right',
-        showConfirmButton: false
+        position: 'top-right'
+      })
+    },
+    showQuestion () {
+      this.$notify.quiestion({
+        text: 'click okay to continue'
       })
     }
   }
@@ -34,5 +33,4 @@ export default {
 </script>
 
 <style>
-
 </style>
