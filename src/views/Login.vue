@@ -14,6 +14,7 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { close } from 'fs'
 
 export default {
   name: 'Login',
@@ -44,17 +45,13 @@ export default {
       this.login(this.form)
         .then((response) => {
           // when its done we set isLoading to false.
-          this.isLoading = false
-          this.showForm = false
           this.$router.push({ name: 'home' })
         })
         .catch((error) => {
+          console.log(error)
           // if there was an error in the API, we show it.
-          this.$notify.error({
-            title: 'Error',
-            text: error
-          })
-          this.errorMessage = error.response.data.error
+        })
+        .finally(() => {
           this.isLoading = false
         })
     }

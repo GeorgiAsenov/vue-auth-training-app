@@ -3,6 +3,7 @@
     <h1>This is an about page</h1>
     <button @click="showSuccess">success</button>
     <button @click="showError">error</button>
+    <p>{{ $t(`navigations.home`) }}</p>
   </div>
 </template>
 

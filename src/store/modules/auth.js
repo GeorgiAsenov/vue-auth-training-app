@@ -1,4 +1,5 @@
 import { AuthService } from '@/services/AuthService'
+import { i18n } from '../../lang/i18n'
 
 // State of the module
 const state = {
@@ -20,7 +21,6 @@ const mutations = {
     window.localStorage.setItem('TOKEN', token)
   }
 }
-
 const actions = {
   login ({ commit }, form) {
     return AuthService.login(form)
@@ -31,6 +31,11 @@ const actions = {
   logout () {
     window.localStorage.removeItem('TOKEN')
     window.location.reload()
+  },
+  chooseLang ({ commit }, langName) {
+    window.localStorage.setItem('language', langName.lang)
+    i18n.locale = langName.lang
+    document.title = i18n.t(langName.title)
   }
 }
 

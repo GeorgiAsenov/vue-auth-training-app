@@ -2,6 +2,10 @@
   <div id="app">
     <div id="nav">
       <the-navigation/>
+      <div>
+        <a href="#" @click="langChange('bg')">BG</a>/
+        <a href="#" @click="langChange('en')">EN</a>
+      </div>
     </div>
     <router-view/>
   </div>
@@ -9,7 +13,7 @@
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -31,8 +35,15 @@
 </style>
 <script>
 import TheNavigation from './components/TheNavigation'
+import { mapActions } from 'vuex'
 
 export default {
-  components: { TheNavigation }
+  components: { TheNavigation },
+  methods: {
+    langChange (lang) {
+      this.chooseLang({ lang: lang, title: this.$route.meta.title })
+    },
+    ...mapActions([`chooseLang`])
+  }
 }
 </script>

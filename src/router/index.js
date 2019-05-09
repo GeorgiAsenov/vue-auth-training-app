@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import { routes } from './route-definitions'
 import { canAccess } from '../utils'
+import { i18n } from '@/lang/i18n'
 
 Vue.use(Router)
 
@@ -39,17 +40,17 @@ const routerInstance = new Router({
 routerInstance.beforeEach((to, from, next) => {
   if (canAccess(to.meta.auth)) {
     // continue as he has access
-    next()
+    return next()
   } else {
     // if user does not have access and tries to go to Login page, go to home
     if (to.name === 'login') return next('/')
     // otherwise go to the login
-    next({ name: 'login' })
+    return next({ name: 'login' })
   }
 })
 
 routerInstance.afterEach((to, from) => {
-  document.title = to.meta.title
+  document.title = i18n.t(to.meta.title)
 })
 
 export default routerInstance
