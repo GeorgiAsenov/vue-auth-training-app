@@ -4,9 +4,15 @@
     <div v-if="errorMessage">
       {{ errorMessage }}
     </div>
+<<<<<<< HEAD
     <form @submit.prevent="submit" v-if="showForm">
       <input type="text" v-model="form.username">
       <input type="password" v-model="form.password">
+=======
+    <form @submit.prevent="submit">
+      <input type="email" v-model="form.email" placeholder="user@mail.com">
+      <input type="password" v-model="form.password" placeholder="12345">
+>>>>>>> c324e7407f89df5eeeba402d1df9de375d19d952
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -22,7 +28,7 @@ export default {
       showForm: true,
       isLoading: false,
       form: {
-        username: '',
+        email: '',
         password: ''
       },
       errorMessage: ''
@@ -50,12 +56,17 @@ export default {
         })
         .catch((error) => {
           // if there was an error in the API, we show it.
+<<<<<<< HEAD
           this.$notify.error({
             title: 'Error',
             text: error
           })
           this.errorMessage = error.response.data.error
           this.isLoading = false
+=======
+          this.isLoading = false
+          this.errorMessage = error.response.data
+>>>>>>> c324e7407f89df5eeeba402d1df9de375d19d952
         })
     }
   }
